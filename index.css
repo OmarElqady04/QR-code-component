@@ -1,0 +1,134 @@
+:root {
+  --fontSize: 15px;
+  --borderRadiusInner: 10px;
+  --borderRadiusOuter: 25px;
+  --White: hsl(0, 0%, 100%);
+  --Lightgray: hsl(212, 45%, 89%);
+  --Grayishblue: hsl(220, 15%, 55%);
+  --Darkblue: hsl(218, 44%, 22%);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+  font-family: work-sans, sans-serif;
+  margin: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
+}
+
+/* Small */
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Medium */
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* Large */
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.card {
+  background-color: var(--Lightgray);
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  text-align: center;
+  padding: 50px;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(order-summary-component-main/images/pattern-background-desktop.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+@media (max-width: 767px) {
+  .card::before {
+    background-image: url(order-summary-component-main/images/pattern-background-mobile.svg);
+  }
+  .container {
+    max-width: 100%;
+  }
+}
+
+.card .container {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  overflow: hidden;
+  background-color: var(--White);
+  border-radius: var(--borderRadiusOuter);
+  -webkit-border-radius: var(--borderRadiusOuter);
+  -moz-border-radius: var(--borderRadiusOuter);
+  -ms-border-radius: var(--borderRadiusOuter);
+  -o-border-radius: var(--borderRadiusOuter);
+}
+
+.card .container img {
+  max-width: 100%;
+  border-top-right-radius: var(--borderRadiusOuter);
+  border-top-left-radius: var(--borderRadiusOuter);
+  border-bottom-right-radius: var(--borderRadiusOuter);
+  border-bottom-left-radius: var(--borderRadiusOuter);
+}
+
+.card .content {
+  background-color: var(--White);
+  margin-top: -3px;
+  padding: 20px;
+  border-bottom-right-radius: var(--borderRadiusOuter);
+  border-bottom-left-radius: var(--borderRadiusOuter);
+}
+
+.card .content h3 {
+  font-size: 30px;
+  color: var(--Darkblue);
+}
+
+.card .content p {
+  color: var(--Grayishblue);
+  line-height: 1.8;
+  font-size: 21px;
+  padding: 15px;
+  margin: 5px;
+}
